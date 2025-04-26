@@ -8,15 +8,57 @@
 </head>
 <body>
     <div class="container">
-        <div class="game-card">
+        <div class="game-card" id="nameSelectionCard">
             <h1>Welcome to Neighborhood Creator</h1>
             <div class="input-section">
                 <label for="neighborhoodName">Name your neighborhood:</label>
                 <input type="text" id="neighborhoodName" placeholder="Enter neighborhood name...">
                 <button id="createNeighborhood">Create Neighborhood</button>
             </div>
-            <div id="neighborhoodDisplay" class="hidden">
-                <h2>Your Neighborhood: <span id="displayName"></span></h2>
+        </div>
+
+        <div class="game-card hidden" id="neighborhoodCard">
+            <div class="neighborhood-header">
+                <h1 id="neighborhoodTitle">Welcome to <span id="displayName"></span></h1>
+                <div class="budget-display">
+                    <span>Budget: $</span>
+                    <span id="budgetAmount">10,000</span>
+                </div>
+                <button id="backToName" class="secondary-button">Change Name</button>
+            </div>
+            
+            <div class="neighborhood-controls">
+                <div class="building-selection">
+                    <h3>Select a Building</h3>
+                    <div class="building-options">
+                        <button class="building-option" data-building="house" data-cost="1000">
+                            House ($1,000)
+                        </button>
+                        <button class="building-option" data-building="shop" data-cost="2000">
+                            Shop ($2,000)
+                        </button>
+                        <button class="building-option" data-building="park" data-cost="500">
+                            Park ($500)
+                        </button>
+                        <button class="building-option" data-building="school" data-cost="5000">
+                            School ($5,000)
+                        </button>
+                        <button class="building-option" data-building="hospital" data-cost="4000">
+                            Hospital ($4,000)
+                        </button>
+                    </div>
+                </div>
+                <div class="selected-building-info hidden" id="selectedBuildingInfo">
+                    <h3>Selected: <span id="selectedBuildingName"></span></h3>
+                    <p>Cost: $<span id="selectedBuildingCost"></span></p>
+                    <button id="cancelSelection" class="secondary-button">Cancel</button>
+                </div>
+            </div>
+
+            <div class="neighborhood-view">
+                <div class="neighborhood-map" id="neighborhoodMap">
+                    <div class="map-grid"></div>
+                </div>
             </div>
         </div>
     </div>
