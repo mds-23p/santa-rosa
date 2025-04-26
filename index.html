@@ -46,6 +46,15 @@
                         <button class="building-option" data-building="hospital" data-cost="4000">
                             Hospital ($4,000)
                         </button>
+                        <button class="building-option" data-building="restaurant" data-cost="3000">
+                            Restaurant ($3,000)
+                        </button>
+                        <button class="building-option" data-building="library" data-cost="2500">
+                            Library ($2,500)
+                        </button>
+                        <button class="building-option" data-building="apartment" data-cost="3500">
+                            Apartment ($3,500)
+                        </button>
                     </div>
                 </div>
                 <div class="selected-building-info hidden" id="selectedBuildingInfo">
@@ -62,6 +71,22 @@
             </div>
         </div>
     </div>
+
+    <!-- Population Modal -->
+    <div class="modal hidden" id="populationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Building Information</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3 id="modalBuildingName"></h3>
+                <div id="buildingDetails"></div>
+                <div id="populationList"></div>
+            </div>
+        </div>
+    </div>
+
     <script src="game.js"></script>
 </body>
 </html> 
