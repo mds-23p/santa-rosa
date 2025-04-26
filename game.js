@@ -26,6 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cell.className = 'grid-cell';
             cell.dataset.index = i;
             cell.addEventListener('click', () => placeBuilding(cell));
+            cell.addEventListener('mouseenter', () => highlightCell(cell));
+            cell.addEventListener('mouseleave', () => unhighlightCell(cell));
             mapGrid.appendChild(cell);
         }
     }
@@ -62,12 +64,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 option.classList.add('selected');
             }
         });
+
+        // Show placement instructions
+        alert(`Selected ${building}. Click on any empty grid cell to place it. Cost: $${cost}`);
     }
 
     function cancelBuildingSelection() {
         selectedBuilding = null;
         selectedBuildingInfo.classList.add('hidden');
         buildingOptions.forEach(option => option.classList.remove('selected'));
+    }
+
+    function highlightCell(cell) {
+        if (selectedBuilding && !cell.classList.contains('occupied')) {
+            cell.classList.add('can-place');
+        }
+    }
+
+    function unhighlightCell(cell) {
+        cell.classList.remove('can-place');
     }
 
     function placeBuilding(cell) {
@@ -86,14 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Create and place the building
         const building = document.createElement('div');
-        building.className = 'building';
-        building.textContent = selectedBuilding.type;
+        building.className = `building ${selectedBuilding.type}`;
+        building.textContent = selectedBuilding.type.charAt(0).toUpperCase() + selectedBuilding.type.slice(1);
         cell.appendChild(building);
         cell.classList.add('occupied');
         occupiedCells.add(cellIndex);
 
         // Update budget
         updateBudget(-selectedBuilding.cost);
+        
+        // Show success message
+        alert(`Successfully placed ${selectedBuilding.type} for $${selectedBuilding.cost}!`);
         
         // Reset selection
         cancelBuildingSelection();

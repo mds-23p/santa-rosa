@@ -190,7 +190,9 @@ button:hover {
     background: #fff;
     border: 1px solid #eee;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    position: relative;
+    min-height: 36px;
 }
 
 .grid-cell:hover {
@@ -198,8 +200,13 @@ button:hover {
 }
 
 .grid-cell.occupied {
-    background: #6e8efb;
+    background: #e9ecef;
     cursor: not-allowed;
+}
+
+.grid-cell.can-place {
+    background: #e3f2fd;
+    border: 2px dashed #6e8efb;
 }
 
 .building {
@@ -212,6 +219,32 @@ button:hover {
     color: white;
     text-align: center;
     padding: 5px;
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.building.house {
+    background: #4CAF50;
+}
+
+.building.shop {
+    background: #2196F3;
+}
+
+.building.park {
+    background: #8BC34A;
+}
+
+.building.school {
+    background: #FF9800;
+}
+
+.building.hospital {
+    background: #f44336;
 }
 
 #displayName {
