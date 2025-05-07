@@ -264,6 +264,27 @@ button:hover {
     background: #607D8B;
 }
 
+.building.ferrisWheel {
+    background: #FFD700; /* gold */
+    color: #333;
+}
+
+.building.rollerCoaster {
+    background: #FF5722; /* deep orange */
+}
+
+.building.merryGoRound {
+    background: #E91E63; /* pink */
+}
+
+.building.arcade {
+    background: #00BCD4; /* cyan */
+}
+
+.building.snackShop {
+    background: #8D6E63; /* brown */
+}
+
 /* Modal Styles */
 .modal {
     position: fixed;
